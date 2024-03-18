@@ -17,9 +17,12 @@ const EditUserInfo = () => {
     initialEditForm,
     updateUserSchema,
     () => {
-      editUserFunction({
-        ...normalizeUser(value.formData),
-      },user._id );
+      editUserFunction(
+        {
+          ...normalizeUser(value.formData),
+        },
+        user._id
+      );
     }
   );
   const { editUserFunction } = useHandleUsersFunctions();
@@ -28,13 +31,12 @@ const EditUserInfo = () => {
     if (user && user._id) {
       getUser(user._id).then((data) => {
         const modeledUser = mapEditUserToModel(data);
-    
+
         setInitForm(modeledUser);
         rest.setFormData(modeledUser);
       });
     }
   }, [user]);
-  
 
   return (
     <>
@@ -57,7 +59,7 @@ const EditUserInfo = () => {
           onReset={() => rest.setFormData(initialForm)}
           errors={value.formErrors}
           onFormChange={rest.validateForm}
-          onInputChange={rest.handleFormChange}
+          onInputChange={rest.handleChange}
         ></EditUserForm>
       </Container>
     </>

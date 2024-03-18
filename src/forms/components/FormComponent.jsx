@@ -1,9 +1,9 @@
+import React, { memo } from "react";
 import { useNavigate } from "react-router-dom";
-import { func, node, number, object, string } from "prop-types";
 import { Box, Typography, Grid } from "@mui/material";
-import { memo } from "react";
-import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
-import FormButtons from "./FormButtons";
+import FormButton from "./FormButtons";
+import LoopIcon from "@mui/icons-material/Loop";
+import { func, node, number, object, string } from "prop-types";
 import SendIcon from "@mui/icons-material/Send";
 
 const FormComponent = ({
@@ -18,6 +18,7 @@ const FormComponent = ({
   children,
 }) => {
   const navigate = useNavigate();
+
   return (
     <Box
       component="form"
@@ -26,23 +27,16 @@ const FormComponent = ({
       onSubmit={onSubmit}
       autoComplete="off"
       noValidate
-      title={title}
     >
-      <Typography
-        variant="h5"
-        align="center"
-        component="h1"
-        color="text.primary"
-        sx={{ pb: 2 }}
-      >
+      <Typography variant="h5" align="center" component="h1">
         {title.toUpperCase()}
       </Typography>
       <Grid container spacing={spacing}>
         {children}
       </Grid>
-      <Grid container spacing={2} my={3} width="100">
+      <Grid container spacing={1} my={2} direction="row" width="100">
         <Grid item xs={12} sm={6}>
-          <FormButtons
+          <FormButton
             node="cancel"
             color="error"
             component="div"
@@ -51,15 +45,15 @@ const FormComponent = ({
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <FormButtons
-            node={<DeleteOutlinedIcon />}
+          <FormButton
+            node={<LoopIcon />}
             component="div"
             variant="outlined"
             onClick={onReset}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <FormButtons
+          <FormButton
             node={<SendIcon />}
             disabled={!!onChange()}
             onClick={onSubmit}
@@ -82,10 +76,11 @@ FormComponent.propTypes = {
   title: string.isRequired,
   styles: object.isRequired,
 };
+
 FormComponent.defaultProps = {
   color: "inherit",
   to: "/",
-  spacing: 2,
+  spacing: 1,
   title: "",
   styles: {},
 };

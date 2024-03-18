@@ -1,7 +1,7 @@
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
-import { makeFirstLetterCapital } from "../utils/upperCaseMethod";
 import { bool, func, object, string } from "prop-types";
+import { makeFirstLetterCapital } from "../utils/upperCaseMethod";
 
 const InputComponent = ({
   variant,
@@ -49,4 +49,5 @@ InputComponent.defaultProps = {
   type: "text",
   required: true,
 };
+
 export default InputComponent;

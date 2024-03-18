@@ -40,6 +40,7 @@ export const deleteCard = async (id) => {
 };
 
 export const createCard = async (card) => {
+  console.log(card);
   try {
     const { data } = await axios.post(`${apiUrl}/cards`, card);
     return data;

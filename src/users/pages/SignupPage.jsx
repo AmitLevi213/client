@@ -41,7 +41,7 @@ const SignupPage = () => {
         <FormComponent
           onSubmit={rest.onSubmit}
           onChange={rest.validateForm}
-          onReset={rest.handleFormReset} 
+          onReset={rest.handleFormReset}
           styles={{ maxWidth: "800px" }}
           title="register"
           to={ROUTES.CARDS}
@@ -50,7 +50,7 @@ const SignupPage = () => {
             name="first"
             label="first name"
             error={value.formErrors.first}
-            onChange={rest.handleFormChange}
+            handleChange={rest.handleChange}
             data={value.formData}
             sm={6}
           />
@@ -58,7 +58,7 @@ const SignupPage = () => {
             name="middle"
             label="middle name"
             error={value.formErrors.middle}
-            onChange={rest.handleFormChange}
+            handleChange={rest.handleChange}
             data={value.formData}
             sm={6}
             required={false}
@@ -67,7 +67,7 @@ const SignupPage = () => {
             name="last"
             label="last name"
             error={value.formErrors.last}
-            onChange={rest.handleFormChange}
+            handleChange={rest.handleChange}
             data={value.formData}
             sm={6}
           />
@@ -76,7 +76,7 @@ const SignupPage = () => {
             label="phone"
             type="phone"
             error={value.formErrors.phone}
-            onChange={rest.handleFormChange}
+            handleChange={rest.handleChange}
             data={value.formData}
             sm={6}
           />
@@ -85,7 +85,7 @@ const SignupPage = () => {
             label="email"
             type="email"
             error={value.formErrors.email}
-            onChange={rest.handleFormChange}
+            handleChange={rest.handleChange}
             data={value.formData}
             sm={6}
           />
@@ -94,7 +94,7 @@ const SignupPage = () => {
             label="password"
             type="password"
             error={value.formErrors.password}
-            onChange={rest.handleFormChange}
+            handleChange={rest.handleChange}
             data={value.formData}
             sm={6}
           />
@@ -102,7 +102,7 @@ const SignupPage = () => {
             name="url"
             label="image url"
             error={value.formErrors.url}
-            onChange={rest.handleFormChange}
+            handleChange={rest.handleChange}
             data={value.formData}
             sm={6}
             required={false}
@@ -111,7 +111,7 @@ const SignupPage = () => {
             name="alt"
             label="image alt"
             error={value.formErrors.alt}
-            onChange={rest.handleFormChange}
+            handleChange={rest.handleChange}
             data={value.formData}
             sm={6}
             required={false}
@@ -120,7 +120,7 @@ const SignupPage = () => {
             name="state"
             label="state"
             error={value.formErrors.state}
-            onChange={rest.handleFormChange}
+            handleChange={rest.handleChange}
             data={value.formData}
             sm={6}
             required={false}
@@ -129,7 +129,7 @@ const SignupPage = () => {
             label="country"
             name="country"
             error={value.formErrors.country}
-            onChange={rest.handleFormChange}
+            handleChange={rest.handleChange}
             data={value.formData}
             sm={6}
           />
@@ -137,7 +137,7 @@ const SignupPage = () => {
             name="city"
             label="city"
             error={value.formErrors.city}
-            onChange={rest.handleFormChange}
+            handleChange={rest.handleChange}
             data={value.formData}
             sm={6}
           />
@@ -145,7 +145,7 @@ const SignupPage = () => {
             name="street"
             label="street"
             error={value.formErrors.street}
-            onChange={rest.handleFormChange}
+            handleChange={rest.handleChange}
             data={value.formData}
             sm={6}
           />
@@ -154,7 +154,7 @@ const SignupPage = () => {
             label="house Number"
             type="number"
             error={value.formErrors.houseNumber}
-            onChange={rest.handleFormChange}
+            handleChange={rest.handleChange}
             data={value.formData}
             sm={6}
           />
@@ -162,16 +162,19 @@ const SignupPage = () => {
             name="zip"
             label="zip"
             error={value.formErrors.zip}
-            onChange={rest.handleFormChange}
+            handleChange={rest.handleChange}
             data={value.formData}
             sm={6}
             required={false}
           />
           <Grid item>
             <FormControlLabel
-             onChange={(e) =>
-              rest.setFormData({ ...value.data, isBusiness: !!e.target.checked })
-            }
+              onChange={(e) =>
+                rest.setFormData({
+                  ...value.formData,
+                  isBusiness: !!e.target.checked,
+                })
+              }
               name="isBusiness"
               control={
                 <Checkbox value={value.formData.isBusiness} color="primary" />

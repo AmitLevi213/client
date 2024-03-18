@@ -34,7 +34,7 @@ const UserProfile = () => {
       <Grid container alignItems="center" justifyContent="center">
         <Grid item xs={12} sm={4}>
           <Avatar
-            alt={currentUser.name}
+            alt={currentUser.alt}
             src={currentUser.avatarUrl}
             sx={{ width: 120, height: 120 }}
           />
@@ -47,7 +47,6 @@ const UserProfile = () => {
           <Typography variant="subtitle1" gutterBottom>
             Email: {currentUser.email}
           </Typography>
-          {/* Add more user information here */}
         </Grid>
         <Grid item xs={12}>
           <NavItem

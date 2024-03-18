@@ -1,6 +1,6 @@
 import Button from "@mui/material/Button";
 import { bool, func, node, string } from "prop-types";
-const FormButtons = ({
+const FormButton = ({
   variant,
   component,
   size,
@@ -24,7 +24,7 @@ const FormButtons = ({
   );
 };
 
-FormButtons.propTypes = {
+FormButton.propTypes = {
   variant: string.isRequired,
   component: string.isRequired,
   size: string.isRequired,
@@ -34,7 +34,7 @@ FormButtons.propTypes = {
   node: node.isRequired,
 };
 
-FormButtons.defaultProps = {
+FormButton.defaultProps = {
   variant: "contained",
   component: "button",
   size: "medium",
@@ -42,4 +42,4 @@ FormButtons.defaultProps = {
   disabled: false,
 };
 
-export default FormButtons;
+export default FormButton;

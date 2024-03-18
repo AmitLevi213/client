@@ -33,10 +33,10 @@ const CreateCardPage = () => {
         title="Create Business Card"
         data={value.formData}
         onSubmit={rest.onSubmit}
-        onReset={rest.handleReset}
+        onReset={rest.handleFormReset}
         errors={value.formErrors}
         onFormChange={rest.validateForm}
-        onInputChange={rest.handleFormChange}
+        onInputChange={rest.handleChange}
       ></CardForm>
     </Container>
   );

@@ -14,7 +14,7 @@ import CardForm from "../components/CardForm";
 const EditUserCardPage = () => {
   const [initialForm, setInitForm] = useState(initialCardForm);
   const navigate = useNavigate();
-  const { id: cardID } = useParams();
+  const { id: cardId } = useParams();
   const {
     handleEditCard,
     handleGetCardFromClient,
@@ -25,7 +25,7 @@ const EditUserCardPage = () => {
     initialCardForm,
     cardSchema,
     () => {
-      handleEditCard(cardID, {
+      handleEditCard(cardId, {
         ...normalizeCard(value.formData),
       });
     }
@@ -33,13 +33,13 @@ const EditUserCardPage = () => {
   const { user } = useUser();
 
   useEffect(() => {
-    handleGetCardFromClient(cardID).then((data) => {
+    handleGetCardFromClient(cardId).then((data) => {
       if (user._id !== data.user_id) navigate(ROUTES.CARDS);
       const modeledCard = mapCardToModel(data);
       setInitForm(modeledCard);
       rest.setFormData(modeledCard);
     });
-  }, [cardID]);
+  });
 
   return (
     <Container
@@ -57,7 +57,7 @@ const EditUserCardPage = () => {
         onReset={() => rest.setFormData(initialForm)}
         errors={value.formErrors}
         onFormChange={rest.validateForm}
-        onInputChange={rest.handleFormChange}
+        onInputChange={rest.handleChange}
       ></CardForm>
     </Container>
   );
