@@ -42,7 +42,6 @@ const SignupPage = () => {
           onSubmit={rest.onSubmit}
           onReset={rest.handleFormReset}
           onChange={rest.validateForm}
-          onReset={rest.handleFormReset} 
           styles={{ maxWidth: "800px" }}
           title="register"
           to={ROUTES.CARDS}
@@ -170,9 +169,12 @@ const SignupPage = () => {
           />
           <Grid item>
             <FormControlLabel
-             onChange={(e) =>
-              rest.setFormData({ ...value.data, isBusiness: !!e.target.checked })
-            }
+              onChange={(e) =>
+                rest.setFormData({
+                  ...value.data,
+                  isBusiness: !!e.target.checked,
+                })
+              }
               name="isBusiness"
               control={
                 <Checkbox value={value.formData.isBusiness} color="primary" />
