@@ -14,7 +14,7 @@ import CardForm from "../components/CardForm";
 const EditUserCardPage = () => {
   const [initialForm, setInitForm] = useState(initialCardForm);
   const navigate = useNavigate();
-  const { id: cardId } = useParams();
+  const { id: cardID } = useParams();
   const {
     handleEditCard,
     handleGetCardFromClient,
@@ -25,7 +25,7 @@ const EditUserCardPage = () => {
     initialCardForm,
     cardSchema,
     () => {
-      handleEditCard(cardId, {
+      handleEditCard(cardID, {
         ...normalizeCard(value.formData),
       });
     }
@@ -33,13 +33,13 @@ const EditUserCardPage = () => {
   const { user } = useUser();
 
   useEffect(() => {
-    handleGetCardFromClient(cardId).then((data) => {
+    handleGetCardFromClient(cardID).then((data) => {
       if (user._id !== data.user_id) navigate(ROUTES.CARDS);
       const modeledCard = mapCardToModel(data);
       setInitForm(modeledCard);
       rest.setFormData(modeledCard);
     });
-  });
+  }, [cardID]);
 
   return (
     <Container
