@@ -3,7 +3,8 @@ import CardComponent from "./card/CardComponent";
 
 const Cards = ({ cards, onDeleteCard, onLike }) => {
   const methods = { onDeleteCard, onLike };
-  if (!cards.length) {
+  const slicedCards = cards.slice(0, 6);
+  if (!slicedCards.length) {
     return <Typography variant="h5">No cards found</Typography>;
   }
 
@@ -17,8 +18,8 @@ const Cards = ({ cards, onDeleteCard, onLike }) => {
         flexWrap="wrap"
         justifyContent="center"
       >
-        {cards.map((card, i) => (
-          <CardComponent {...methods} card={card} key={i}></CardComponent>
+        {slicedCards.map((card, i) => (
+          <CardComponent {...methods} card={card} key={i} />
         ))}
       </Stack>
     </Container>
