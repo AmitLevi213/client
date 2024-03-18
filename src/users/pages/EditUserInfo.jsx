@@ -33,7 +33,7 @@ const EditUserInfo = () => {
         rest.setFormData(modeledUser);
       });
     }
-  }, [user]);
+  }, [user, rest]);
   
 
   return (
@@ -57,7 +57,7 @@ const EditUserInfo = () => {
           onReset={() => rest.setFormData(initialForm)}
           errors={value.formErrors}
           onFormChange={rest.validateForm}
-          onInputChange={rest.handleFormChange}
+          onInputChange={rest.handleChange}
         ></EditUserForm>
       </Container>
     </>

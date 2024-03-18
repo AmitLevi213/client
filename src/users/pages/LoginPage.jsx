@@ -43,7 +43,7 @@ const LoginPage = () => {
           type={"email"}
           data={value.formData}
           error={value.formErrors.email}
-          handleChange={rest.handleFormChange}
+          handleChange={rest.handleChange}
         />
         <InputComponent
           label={"Password"}
@@ -51,7 +51,7 @@ const LoginPage = () => {
           type={"password"}
           data={value.formData}
           error={value.formErrors.password}
-          handleChange={rest.handleFormChange}
+          handleChange={rest.handleChange}
         />
       </FormComponent>
     </Container>

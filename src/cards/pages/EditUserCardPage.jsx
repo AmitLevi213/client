@@ -57,7 +57,7 @@ const EditUserCardPage = () => {
         onReset={() => rest.setFormData(initialForm)}
         errors={value.formErrors}
         onFormChange={rest.validateForm}
-        onInputChange={rest.handleFormChange}
+        onInputChange={rest.handleChange}
       ></CardForm>
     </Container>
   );

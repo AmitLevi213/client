@@ -21,7 +21,7 @@ const useFormsValidate = (initialForm, schema, handleSubmit) => {
     [schema]
   );
 
-  const handleFormChange = useCallback(
+  const handleChange = useCallback(
     (e) => {
       const target = e.target;
       const { name, value } = target;
@@ -55,7 +55,7 @@ const useFormsValidate = (initialForm, schema, handleSubmit) => {
   }, [formData, formErrors]);
   return {
     handleFormReset,
-    handleFormChange,
+    handleChange,
     validateForm,
     onSubmit,
     setFormData,

@@ -30,19 +30,19 @@ const CardDetailsPage = () => {
                 <CardHead image={card.image} />
               </Box>
               <Box>
-                <Typography variant="h4" gutterBottom>
+                <Typography variant="h4" color="textSecondary" gutterBottom>
                   {card.title}
                 </Typography>
                 <Typography variant="h6" color="textSecondary" paragraph>
                   {card.subtitle}
                 </Typography>
-                <Typography variant="body1" paragraph>
+                <Typography variant="body1" color="textSecondary" paragraph>
                   {card.description}
                 </Typography>
-                <Typography variant="subtitle1" paragraph>
+                <Typography variant="subtitle1" color="textSecondary" paragraph>
                   Phone: {card.phone}
                 </Typography>
-                <Typography variant="subtitle1" paragraph>
+                <Typography variant="subtitle1" color="textSecondary" paragraph>
                   Email: {card.email}
                 </Typography>
               </Box>
