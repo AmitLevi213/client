@@ -171,7 +171,7 @@ const SignupPage = () => {
             <FormControlLabel
               onChange={(e) =>
                 rest.setFormData({
-                  ...value.data,
+                  ...value.formData,
                   isBusiness: !!e.target.checked,
                 })
               }
