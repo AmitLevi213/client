@@ -10,7 +10,7 @@ const CardComponent = ({ card, onDeleteCard, onLike }) => {
   const navigate = useNavigate();
 
   return (
-    <Card sx={{ minWidth: 28, maxWIdth: 350 }}>
+    <Card sx={{ width: 260 }}>
       <CardActionArea
         onClick={() => navigate(`${ROUTES.CARD_DETAILS}/${card._id}`)}
       >

@@ -12,8 +12,11 @@ import PageHeader from "../../components/PageHeader";
 import FormComponent from "../../forms/components/FormComponent";
 import InputComponent from "../../forms/components/InputComponent";
 import { Container } from "@mui/material";
+import { useTheme } from "../../providers/ThemeProvider";
 
 const SignupPage = () => {
+  const { isDark } = useTheme();
+
   const { signupFunction } = useHandleUsersFunctions();
   const { value, ...rest } = useFormsValidate(
     initialSignupForm,
@@ -165,7 +168,6 @@ const SignupPage = () => {
             handleChange={rest.handleChange}
             data={value.formData}
             sm={6}
-            required={false}
           />
           <Grid item>
             <FormControlLabel
@@ -176,10 +178,9 @@ const SignupPage = () => {
                 })
               }
               name="isBusiness"
-              control={
-                <Checkbox value={value.formData.isBusiness} color="primary" />
-              }
+              control={<Checkbox value={value.formData.isBusiness} />}
               label="Signup as business"
+              sx={{ color: isDark ? "#e3f2fd" : "#333333" }}
             ></FormControlLabel>
           </Grid>
         </FormComponent>
