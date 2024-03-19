@@ -30,7 +30,7 @@ const UserProfile = () => {
   }
 
   return (
-    <Paper elevation={3} sx={{pt:2}}>
+    <Paper elevation={3} sx={{ pt: 2 }}>
       <Grid container alignItems="center" justifyContent="center">
         <Grid item xs={12} sm={4}>
           <Avatar
