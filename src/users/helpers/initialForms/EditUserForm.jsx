@@ -1,7 +1,7 @@
 import { func, object, string } from "prop-types";
+import ROUTES from "../../../routes/routesModel";
 import FormComponent from "../../../forms/components/FormComponent";
 import InputComponent from "../../../forms/components/InputComponent";
-import ROUTES from "../../../routes/routesModel";
 
 const EditUserForm = ({
   onSubmit,
@@ -143,7 +143,6 @@ const EditUserForm = ({
         handleChange={onInputChange}
         data={data}
         sm={6}
-        required={false}
       />
     </FormComponent>
   );

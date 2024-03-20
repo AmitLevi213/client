@@ -80,7 +80,6 @@ const CardForm = ({
         handleChange={onInputChange}
         data={data}
         sm={6}
-        required={false}
       />
       <InputComponent
         name="imageAlt"
@@ -89,7 +88,6 @@ const CardForm = ({
         handleChange={onInputChange}
         data={data}
         sm={6}
-        required={false}
       />
       <InputComponent
         name="state"

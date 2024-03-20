@@ -2,9 +2,7 @@ import Joi from "joi";
 
 const SignupSchema = {
   first: Joi.string().min(2).max(250).required(),
-
   last: Joi.string().min(2).max(250).required(),
-
   middle: Joi.string().min(2).max(250).allow(""),
 
   phone: Joi.string()
@@ -17,7 +15,7 @@ const SignupSchema = {
   email: Joi.string()
     .ruleset.pattern(/^([a-zA-Z0-9_\-.]+)@([a-zA-Z0-9_\-.]+)\.([a-zA-Z]{2,5})$/)
     .rule({
-      message: 'user "mail" must be a valid mail',
+      message: 'user "email" must be a valid mail',
     })
     .required(),
 
