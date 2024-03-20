@@ -57,7 +57,8 @@ const useCards = () => {
       const cards = await getCards();
       requestStatus(null, cards, false, null);
     } catch (error) {
-      snackbar("error", error);
+      snackbar("error", error.message);
+
       requestStatus(null, null, false, error);
     }
   }, []);
@@ -79,6 +80,7 @@ const useCards = () => {
       await deleteCard(cardId);
       snackbar("success", "The business card has been successfully deleted");
     } catch (error) {
+      snackbar("error", error.message);
       requestStatus(null, null, false, error);
     }
   }, []);
@@ -102,6 +104,7 @@ const useCards = () => {
       snackbar("success", "The business card has been successfully created");
       navigate(ROUTES.MY_CARDS);
     } catch (error) {
+      snackbar("error", error.message);
       requestStatus(null, null, false, error);
     }
   }, []);

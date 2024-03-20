@@ -18,15 +18,24 @@ export const SnackbarProvider = ({ children }) => {
     setSnackbarMessage(message);
   }, []);
 
+  const snackBarStyles = {
+    width: "100%",
+    borderRadius: "20px",
+  };
+
   return (
     <>
       <Snackbar
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
         open={isSnackbarOpen}
         onClose={() => setSnackbarOpen((prev) => !prev)}
-        autoHideDuration={1900}
+        autoHideDuration={2300}
       >
-        <Alert severity={snackbarColor} variant={snackbarVariant}>
+        <Alert
+          severity={snackbarColor}
+          variant={snackbarVariant}
+          sx={snackBarStyles}
+        >
           {snackbarMessage}
         </Alert>
       </Snackbar>
