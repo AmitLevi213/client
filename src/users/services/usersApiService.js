@@ -2,7 +2,7 @@ import axios from "axios";
 
 const apiUrl =
   process.env.REACT_APP_API_URL ||
-  "https://monkfish-app-z9uza.ondigitalocean.app/bcard2/users";
+  "http://localhost:8181/users";
   
 export const login = async (user) => {
   try {

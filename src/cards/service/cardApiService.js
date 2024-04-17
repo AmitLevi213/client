@@ -1,11 +1,9 @@
 import axios from "axios";
 
-const apiUrl =
-  process.env.REACT_APP_API_URL ||
-  "https://monkfish-app-z9uza.ondigitalocean.app/bcard2";
+const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:8181/cards";
 export const getCards = async () => {
   try {
-    const response = await axios.get(`${apiUrl}/cards`);
+    const response = await axios.get(`${apiUrl}`);
     return response.data;
   } catch (error) {
     return Promise.reject(error.message);
@@ -14,7 +12,7 @@ export const getCards = async () => {
 
 export const getCard = async (id) => {
   try {
-    const response = await axios.get(`${apiUrl}/cards/${id}`);
+    const response = await axios.get(`${apiUrl}/${id}`);
     return response.data;
   } catch (error) {
     return Promise.reject(error.message);
@@ -23,7 +21,7 @@ export const getCard = async (id) => {
 
 export const getMyCards = async () => {
   try {
-    const { data } = await axios.get(`${apiUrl}/cards/my-cards`);
+    const { data } = await axios.get(`${apiUrl}/my-cards`);
     return data;
   } catch (error) {
     return Promise.reject(error.message);
@@ -32,7 +30,7 @@ export const getMyCards = async () => {
 
 export const deleteCard = async (id) => {
   try {
-    const { data } = await axios.delete(`${apiUrl}/cards/${id}`);
+    const { data } = await axios.delete(`${apiUrl}/${id}`);
     return data;
   } catch (error) {
     return Promise.reject(error.message);
@@ -41,7 +39,7 @@ export const deleteCard = async (id) => {
 
 export const createCard = async (card) => {
   try {
-    const { data } = await axios.post(`${apiUrl}/cards`, card);
+    const { data } = await axios.post(`${apiUrl}`, card);
     return data;
   } catch (error) {
     return Promise.reject(error.message);
@@ -50,7 +48,7 @@ export const createCard = async (card) => {
 
 export const updateCard = async (cardId, card) => {
   try {
-    const { data } = await axios.put(`${apiUrl}/cards/${cardId}`, card);
+    const { data } = await axios.put(`${apiUrl}/${cardId}`, card);
     return data;
   } catch (error) {
     return Promise.reject(error.message);
@@ -59,7 +57,7 @@ export const updateCard = async (cardId, card) => {
 
 export const changeLikeStatus = async (cardId) => {
   try {
-    const { data } = await axios.patch(`${apiUrl}/cards/${cardId}`);
+    const { data } = await axios.patch(`${apiUrl}/${cardId}`);
     return data;
   } catch (error) {
     return Promise.reject(error.message);
